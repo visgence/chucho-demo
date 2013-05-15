@@ -1,0 +1,3 @@
+[submodule "chucho"]
+	path = chucho
+	url = git@github.com:visgence/django-chucho.git
