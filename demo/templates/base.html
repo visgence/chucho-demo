@@ -24,6 +24,11 @@
         <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/grid.css">
     </head>
     <body>
+        
+        {% if user %}
+            <span>Hello {{user.first_name}} {{user.last_name}} (<a href='/demo/logout/'>Log Out</a>)</span>
+        {% endif %}
+
         {% block content %} {% endblock %}
     </body>
 </html>
