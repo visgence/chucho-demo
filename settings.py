@@ -2,7 +2,7 @@
 import re, os
 program_path = os.path.realpath(__file__)
 APP_PATH = re.sub('settings.py[c]*$', '', program_path);
-print APP_PATH
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -21,6 +21,8 @@ def get_permission_obj():
 #Global time format for datetime objects
 DT_FORMAT = "%m/%d/%Y %H:%M:%S"
 D_FORMAT = "%m/%d/%Y"
+
+SESSION_TIMEOUT = 7200
 
 MANAGERS = ADMINS
 
@@ -81,7 +83,7 @@ STATIC_ROOT = APP_PATH + 'static/'
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = '/static/'
-print STATIC_URL
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
