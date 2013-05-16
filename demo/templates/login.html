@@ -1,0 +1,38 @@
+<h1>Please Log In</h1>
+
+
+<div id="login_error" class="ui-corner-all ui-state-error" style="margin: 1em;">
+    <span>{{error}}</span>
+</div>
+
+<form method="post" action="/demo/login/">
+    {% csrf_token %}
+    <div class="form_row">
+        <span class="form_column">
+            <label for="username">Username:</label>
+        </span>
+        <span class="form_column">
+            <input name="username" type="text"/>
+        </span>
+        &nbsp;
+    </div>
+    
+    <div class="form_row">
+        <span class="form_column">
+            <label for="password">Password:</label>
+        </span>
+        <span class="form_column">
+            <input name="password" type="password"/>
+        </span>
+        &nbsp;
+    </div>
+    
+    <div class="form_row">
+        <span class="form_column">
+            <input id="login_btn" type="submit" value="Log In"/>
+        </span>
+        &nbsp;
+    </div>
+    
+</form>
+</div>
