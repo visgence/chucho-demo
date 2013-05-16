@@ -1,0 +1,29 @@
+{% load url from future %}
+{% load dajaxice_templatetags %}
+
+
+<html>
+    <head>
+        {% dajaxice_js_import %}
+        
+        <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}js/spin.min.js"></script>
+
+        <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-1.10.1.custom.min.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-timepicker-addon.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/smoothness/jquery-ui-1.10.1.custom.min.css">
+
+        <script type="text/javascript" src="{{STATIC_URL}}plugins/slickGrid/lib/jquery.event.drag-2.2.js"></script>   
+        <script type="text/javascript" src="{{STATIC_URL}}plugins/slickGrid/slick.core.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}plugins/slickGrid/plugins/slick.rowselectionmodel.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}plugins/slickGrid/slick.formatters.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}plugins/slickGrid/slick.editors.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}plugins/slickGrid/slick.grid.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}js/chucho.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}plugins/slickGrid/slick.grid.css">
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/grid.css">
+    </head>
+    <body>
+        {% block content %} {% endblock %}
+    </body>
+</html>
