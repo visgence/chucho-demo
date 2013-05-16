@@ -33,11 +33,13 @@ class ModelTimestamp(models.Model):
 
 class DemoUserManager(BaseUserManager, ChuchoUserManager):
     def create_user(self, email, first_name, last_name, password=None):
-        user = DemoUser(email=email, first_name=first_name, last_name=last_name, password=password)
+        user = DemoUser(email=email, first_name=first_name, last_name=last_name)
+        user.set_password(password)
         user.save()
         
     def create_superuser(self, email, first_name, last_name, password):
-        user = DemoUser(email=email, first_name=first_name, last_name=last_name, password=password)
+        user = DemoUser(email=email, first_name=first_name, last_name=last_name, is_superuser=True)
+        user.set_password(password)
         user.save() 
 
 
