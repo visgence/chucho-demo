@@ -17,7 +17,7 @@ GETTING STARTED
     ./manage.py setup
 
     This loads one super user with the following credentials to login with:
-        username - super@demo.com
+        username - auth@example.com
         password - password
 
 3) Start Django server.
