@@ -11,7 +11,7 @@ ADMINS = (
 )
 
 AUTH_USER_MODEL = 'demo.DemoUser'
-def get_permission_obj():
+def GET_PERMISSION_OBJ():
     '''
     ' This function should be modified to return the object that is used to verify permissions in the
     ' object managers.  This is required for the chucho interface.
