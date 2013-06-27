@@ -115,7 +115,7 @@ class DemoInfo(models.Model):
     intValue = models.IntegerField(null=True, blank=True)
     floatValue = models.FloatField(null=True, blank=True)
     decimalField = models.DecimalField(null=True, blank=True, max_digits=20, decimal_places=6)
-    user = models.ForeignKey(DemoUser)
+    user = models.ForeignKey(DemoUser, null=True, blank=True)
     isBoolean = models.BooleanField()
     textField = models.TextField(blank=True)
     dateTime = models.DateTimeField(default=timezone.now(), blank=True)
