@@ -58,6 +58,7 @@ class DemoUser(AbstractBaseUser, ModelTimestamp):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
+    search_fields = ['email', 'first_name', 'last_name']
     column_options = dict(ModelTimestamp.column_options)
     column_options.update({
             'id': {'grid_column': False},
@@ -122,3 +123,63 @@ class DemoInfo(models.Model):
     
 
     objects = ChuchoManager()
+
+    search_fields = ['name', 'intValue', 'user', 'floatValue', 'decimalField']
+
+    def __unicode__(self):
+        return self.name
+
+    
+    def can_view(self, user):
+        '''
+        ' Checks if a User instance is allowed to view this object instance or not.
+        '
+        ' Keyword Arguments:
+        '   user - AuthUser to check if they have permissions.
+        '
+        ' Return: True if user is allowed to view and False otherwise.
+        '''
+
+        if not isinstance(user, get_user_model()):
+            raise TypeError('%s is not an auth user' % str(user))
+
+        if user == self.user or user.is_superuser:
+            return True
+
+        return False
+
+
+class DemoInfoTwo(models.Model):
+    name = models.CharField(max_length=32, unique=True)
+    demoInfo = models.ForeignKey(DemoInfo, null=True, blank=True)
+
+    objects = ChuchoManager()
+
+
+    def __unicode__(self):
+        return self.name
+
+
+    def can_view(self, user):
+        '''
+        ' Checks if a User instance is allowed to view this object instance or not.
+        '
+        ' Keyword Arguments:
+        '   user - AuthUser to check if they have permissions.
+        '
+        ' Return: True if user is allowed to view and False otherwise.
+        '''
+
+        if not isinstance(user, get_user_model()):
+            raise TypeError('%s is not an auth user' % str(user))
+
+        return True
+
+
+class DemoInfoThree(models.Model):
+    name = models.CharField(max_length=32, unique=True)
+    demoInfoTwo = models.ForeignKey(DemoInfoTwo, null=True, blank=True)
+    demoInfos = models.ManyToManyField(DemoInfo)
+
+    objects = ChuchoManager()
+
