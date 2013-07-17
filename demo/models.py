@@ -150,8 +150,16 @@ class DemoInfo(models.Model):
 
 
 class DemoInfoTwo(models.Model):
+    CHOICES = (
+         ('C1', 'Choice 1')
+        ,('C2', 'Choice 2')
+        ,('C3', 'Choice 3')
+        ,('C4', 'Choice 4')
+    )
+
     name = models.CharField(max_length=32, unique=True)
     demoInfo = models.ForeignKey(DemoInfo, null=True, blank=True)
+    choices = models.CharField(choices=CHOICES, max_length=2)
 
     objects = ChuchoManager()
 
