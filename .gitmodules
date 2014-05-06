@@ -1,3 +1,6 @@
 [submodule "chucho"]
 	path = chucho
 	url = git@github.com:visgence/django-chucho.git
+[submodule "demo/static/plugins/minicolors"]
+	path = demo/static/plugins/minicolors
+	url = https://github.com/claviska/jquery-minicolors.git
