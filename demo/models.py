@@ -52,7 +52,7 @@ class DemoUser(AbstractBaseUser, ModelTimestamp):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     is_superuser = models.BooleanField(default=False)
-
+    color = models.CharField(max_length=32, blank=True)
     objects = DemoUserManager()
 
     USERNAME_FIELD = 'email'
@@ -116,7 +116,7 @@ class DemoInfo(models.Model):
     intValue = models.IntegerField(null=True, blank=True)
     floatValue = models.FloatField(null=True, blank=True)
     decimalField = models.DecimalField(null=True, blank=True, max_digits=20, decimal_places=6)
-    user = models.ForeignKey(DemoUser, null=True, blank=True)
+    user = models.ForeignKey(DemoUser, null=True, blank=True, db_column="user")
     isBoolean = models.BooleanField()
     textField = models.TextField(blank=True)
     dateTime = models.DateTimeField(default=timezone.now(), blank=True)
@@ -124,7 +124,7 @@ class DemoInfo(models.Model):
 
     objects = ChuchoManager()
 
-    search_fields = ['name', 'intValue', 'user', 'floatValue', 'decimalField']
+    search_fields = ['name', 'intValue', 'user', 'floatValue', 'decimalField', 'dateTime']
 
     def __unicode__(self):
         return self.name
